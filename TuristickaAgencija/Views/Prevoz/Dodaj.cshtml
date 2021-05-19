@@ -1,0 +1,49 @@
+﻿@using TuristickaAgencija.Models;
+@model TuristickaAgencija.ViewModel.PrevozDodajUrediVM;
+@{
+    ViewData["Title"] = "Dodaj";
+}
+
+
+
+
+    <form enctype="multipart/form-data" asp-action="Snimi" method="post">
+        @Html.HiddenFor(s => s.Id)
+
+        <div class="form-group">
+            <label>Firma</label>
+            <select asp-for="FirmaID" asp-items="@Model.Firma" class="form-control"></select>
+            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Tip prevoza </label>
+            <input asp-for="TipPrevoza" class="form-control" />
+            @Html.ValidationMessageFor(model => model.TipPrevoza, "", new { @class = "text-danger" })
+
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Broj mjesta </label>
+            <input asp-for="BrojMjesta" class="form-control" />
+            @Html.ValidationMessageFor(model => model.BrojMjesta, "", new { @class = "text-danger" })
+
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Cijena </label>
+            <input asp-for="CijenaPoMjestu" class="form-control" />
+            @Html.ValidationMessageFor(model => model.CijenaPoMjestu, "", new { @class = "text-danger" })
+
+            <br />
+        </div>
+       
+
+
+
+
+
+        <input type="submit" value="Snimi" class="btn btn-warning" />
+    </form>
+
